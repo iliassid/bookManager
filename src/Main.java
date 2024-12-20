@@ -6,6 +6,7 @@ public class Main {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
 
+
         while(true) {
             System.out.println("Menu");
             System.out.println("1. Show available books");
@@ -32,32 +33,17 @@ public class Main {
 
 
                 case 2 :
-                    System.out.print("Enter the title:");
-                    String title = scanner.nextLine();
-                    System.out.print("Enter the author:");
-                    String author = scanner.nextLine();
-                    System.out.print("Enter the isbn:");
-                    String isbn = scanner.nextLine();
-                    System.out.print("Enter the book availability (true/false):");
-                    Boolean isAvailable = scanner.nextBoolean();
-                    scanner.nextLine();
 
-                    Book book=new Book(title, author, isbn, isAvailable);
-                    library.AddBook(book);
+                    library.AddBook();
 
                     break;
                 case 3 :
-                    System.out.print("Enter the isbn of the book to remove : ");
-                    isbn = scanner.nextLine();
-                    library.removeBook(isbn);
+
+                    library.removeBook();
                     break;
-                case 4:
-                    System.out.println("Enter the isbn for the book you want to edit");
-                    isbn = scanner.nextLine();
-                    System.out.println("1: Update Title\n2: Update Author\n3: Update Availability");
-                    System.out.print("Enter a choice :");
-                    int choiceToUpdate = scanner.nextInt();
-                    library.updateBook(isbn, choiceToUpdate);
+               case 4:
+
+                    library.updateBook();
                     break;
                 case 5:
                     library.searchBook();

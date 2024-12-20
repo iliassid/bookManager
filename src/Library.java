@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Library {
     ArrayList<Book>books= new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-
+    String isbn;
 
 
 
@@ -27,7 +27,20 @@ public class Library {
 
 
 
-    public void AddBook(Book book){
+    public void AddBook(){
+        System.out.print("Enter the title:");
+        String title = scanner.nextLine();
+        System.out.print("Enter the author:");
+        String author = scanner.nextLine();
+        System.out.print("Enter the isbn:");
+        isbn = scanner.nextLine();
+        System.out.print("Enter the book availability (true/false):");
+        Boolean isAvailable = scanner.nextBoolean();
+        scanner.nextLine();
+
+        Book book=new Book(title, author, isbn, isAvailable);
+
+
         books.add(book);
         System.out.println("the book is added seccessfully");
 
@@ -36,15 +49,23 @@ public class Library {
 
 
 
-    public void removeBook(String isbn){
+    public void removeBook(){
+        System.out.print("Enter the isbn of the book to remove : ");
+        isbn = scanner.nextLine();
         books.removeIf(book -> book.getIsbn().equals(isbn));
         System.out.println("The book removed seccessfully");
     }
 
 
 
-    public void updateBook(String isbn, int choiceToUpdate){
+    public void updateBook(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the isbn for the book you want to edit");
+        isbn = scanner.nextLine();
+        System.out.println("1: Update Title\n2: Update Author\n3: Update Availability");
+        System.out.print("Enter a choice :");
+        int choiceToUpdate = scanner.nextInt();
+        scanner.nextLine();
         for(Book book:books){
             if(book.getIsbn().equals(isbn)){
                 switch (choiceToUpdate){
