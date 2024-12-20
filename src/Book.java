@@ -40,12 +40,14 @@ public class Book{
     public String toString() {
 
 
-        return "------------------------] \n" +
+        return
+                "\n"+
                 "Title : " + title +
                 "\nAuthor : " + author +
                 "\nIsbn : " + isbn +
-                "\nIsAvailable :" + isAvailable +
-                "\n"+"[------------------------" ;
+                "\nIsAvailable :" + isAvailable+
+                 "\n"
+                ;
     }
 }
 
